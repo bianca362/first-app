@@ -32,7 +32,7 @@ app.post("/recommend",(req,res)=>{
     res.json(recommendations[mood]);
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 10000;
 
 app.get("/",(req,res)=>{
     res.send("welcome to the mood-based recommendation API");

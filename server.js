@@ -24,7 +24,7 @@ const recommendations ={
 };
 
 app.post("/recommend",(req,res)=>{
-    const{mood}= req.body;
+    const{mood}= req.body.mood;
 
     if(!mood || !recommendations[mood]){
         return res.status(400).json({error:"invalid or missing mood"});
@@ -34,7 +34,9 @@ app.post("/recommend",(req,res)=>{
 
 const PORT = process.env.PORT || 5000;
 
-
+app.get("/",(req,res)=>{
+    res.send("welcome to the mood-based recommendation API");
+})
 
 app.listen(PORT, ()=>{
     console.log(`server is running on port ${PORT}`);
